@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d1mwa1docgrck"]
+
+[ext_resource type="PackedScene" uid="uid://0rrsxel8q37x" path="res://cartas/carta_face.tscn" id="1_rlqtx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rlqtx"]
+size = Vector2(0.714, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_esl00"]
+size = Vector2(0.714, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.704834, 1, 0.014770508)
+
+[node name="Carta3D" type="Node3D" unique_id=13563854]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=734919037]
+size = Vector2i(400, 560)
+
+[node name="CartaFace" parent="SubViewport" unique_id=1290363814 instance=ExtResource("1_rlqtx")]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pivo" type="Node3D" parent="." unique_id=752667997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Frente" type="MeshInstance3D" parent="Pivo" unique_id=1146219433]
+mesh = SubResource("QuadMesh_rlqtx")
+
+[node name="Verso" type="MeshInstance3D" parent="Pivo" unique_id=234766606]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.002)
+mesh = SubResource("QuadMesh_esl00")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1509835954]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1485817041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036621094, 0.5, -0.002)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=666011555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44169158, 1.7424932)
+
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

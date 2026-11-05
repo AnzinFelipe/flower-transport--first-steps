@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://0rrsxel8q37x"]
+
+[ext_resource type="Script" uid="uid://ixe1dowbvck6" path="res://cartas/carta_face.gd" id="1_3wugg"]
+[ext_resource type="Texture2D" uid="uid://1ygi87s3e33k" path="res://assets/Narciso.png" id="1_xfnnk"]
+[ext_resource type="Script" uid="uid://cdhv7tpx7lvin" path="res://cartas/ataques/ataque.gd" id="2_5k1si"]
+[ext_resource type="Script" uid="uid://hyrcxtrk0v8p" path="res://cartas/equipe/dados/dado_carta.gd" id="4_5k1si"]
+
+[sub_resource type="Resource" id="Resource_idmux"]
+script = ExtResource("2_5k1si")
+nome = "Sopro de fogo"
+dano = 40
+metadata/_custom_type_script = "uid://cdhv7tpx7lvin"
+
+[sub_resource type="Resource" id="Resource_l6aog"]
+script = ExtResource("4_5k1si")
+nome = "Narciso"
+vida_padrao = 100
+defesa_padrao = 4
+xp_prox_nivel = 50
+imagem = ExtResource("1_xfnnk")
+ataques_padroes = Array[ExtResource("2_5k1si")]([SubResource("Resource_idmux")])
+fraquezas = Array[int]([0])
+metadata/_custom_type_script = "uid://hyrcxtrk0v8p"
+
+[node name="CartaFace" type="PanelContainer" unique_id=1290363814]
+custom_minimum_size = Vector2(400, 560)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3wugg")
+dado = SubResource("Resource_l6aog")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=185016470]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2009281235]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=253137240]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=288076001]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Narciso"
+horizontal_alignment = 3
+
+[node name="Nivel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1816708618]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Nv. 12"
+
+[node name="BarraVida" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1152745638]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+show_percentage = false
+
+[node name="Arte" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1658404611]
+custom_minimum_size = Vector2(0, 240)
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("1_xfnnk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Fraquezas" type="Label" parent="MarginContainer/VBoxContainer" unique_id=330603677]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Fraco a: Água"
+
+[node name="Derrotada" type="ColorRect" parent="." unique_id=1937250693]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.39215687)
