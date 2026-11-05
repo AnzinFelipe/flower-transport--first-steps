@@ -6,6 +6,13 @@
 [sub_resource type="QuadMesh" id="QuadMesh_rlqtx"]
 size = Vector2(0.714, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_t230k"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isi8i"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_t230k")
+
 [sub_resource type="QuadMesh" id="QuadMesh_esl00"]
 size = Vector2(0.714, 1)
 
@@ -17,6 +24,7 @@ script = ExtResource("1_isi8i")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=734919037]
 size = Vector2i(400, 560)
+render_target_update_mode = 4
 
 [node name="CartaFace" parent="SubViewport" unique_id=1290363814 instance=ExtResource("1_rlqtx")]
 anchors_preset = 15
@@ -32,9 +40,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Frente" type="MeshInstance3D" parent="Pivo" unique_id=1146219433]
 mesh = SubResource("QuadMesh_rlqtx")
+surface_material_override/0 = SubResource("StandardMaterial3D_isi8i")
 
 [node name="Verso" type="MeshInstance3D" parent="Pivo" unique_id=234766606]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.002)
+visible = false
 mesh = SubResource("QuadMesh_esl00")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1509835954]

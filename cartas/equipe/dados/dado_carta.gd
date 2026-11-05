@@ -12,4 +12,12 @@ extends Resource
 @export var xp_prox_nivel: int = 1
 @export var imagem: Texture2D
 @export var ataques_padroes: Array[Ataque]
-@export var fraquezas: Array[Elementos.Elementos]
+@export var fraquezas: Array[Elemento.Elementos]
+@export var resistencias: Array[Elemento.Elementos]
+
+var vida_max: int:
+	get:
+		return vida_padrao + (nv_vida - 1) * 10
+var defesa: int:
+	get:
+		return defesa_padrao + (nv_defesa - 1) * 2
