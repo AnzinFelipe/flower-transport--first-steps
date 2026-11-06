@@ -8,10 +8,9 @@ extends PanelContainer
 @onready var hbox_resis = %HBoxResistencias
 @onready var barra_vida = %BarraVida
 @onready var defesa = %Defesa
-@export var dado: DadoCarta
 
 
-func _ready() -> void:
+func popular_face(dado: Resource) -> void:
 	nome.text = dado.nome
 	nivel.text = "Nv. " + str(dado.nivel)
 	barra_vida.max_value = dado.vida_max

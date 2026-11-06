@@ -1,4 +1,4 @@
-class_name DadoCarta
+class_name DadoInimigo
 extends Resource
 
 @export var nome: String = "Carta"
@@ -8,10 +8,9 @@ extends Resource
 @export var nv_vida: int = 1
 @export var nv_ataque: int = 1
 @export var nv_defesa: int = 1
-@export var xp_atual: int = 0
-@export var xp_prox_nivel: int = 1
+@export var xp_valor: int = 1
 @export var imagem: Texture2D
-@export var ataques_padroes: Array[Ataque]
+@export var ataques: Array[Ataque]
 @export var fraquezas: Array[Elemento.Elementos]
 @export var resistencias: Array[Elemento.Elementos]
 

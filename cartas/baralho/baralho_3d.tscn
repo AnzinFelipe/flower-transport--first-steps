@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cpu7sdnystfnq"]
+
+[ext_resource type="Script" uid="uid://b45riwb0hc6jq" path="res://cartas/baralho/baralho_3d.gd" id="1_xptgo"]
+[ext_resource type="Texture2D" uid="uid://b2egpf7xrouql" path="res://assets/icon.svg" id="2_yt30m"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vcie5"]
+size = Vector2(0.714, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4v7s"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpwth"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_g4v7s")
+
+[sub_resource type="QuadMesh" id="QuadMesh_inuuk"]
+size = Vector2(0.714, 1)
+
+[node name="Baralho3d" type="Node3D" unique_id=122440324]
+script = ExtResource("1_xptgo")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1642373969]
+size = Vector2i(400, 560)
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport" unique_id=797460912]
+custom_minimum_size = Vector2(400, 560)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/PanelContainer" unique_id=183103897]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/PanelContainer/MarginContainer" unique_id=150143159]
+layout_mode = 2
+texture = ExtResource("2_yt30m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Pivo" type="Node3D" parent="." unique_id=231233818]
+
+[node name="Frente" type="MeshInstance3D" parent="Pivo" unique_id=1543589242]
+mesh = SubResource("QuadMesh_vcie5")
+surface_material_override/0 = SubResource("StandardMaterial3D_rpwth")
+
+[node name="Verso" type="MeshInstance3D" parent="Pivo" unique_id=1677544241]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.002)
+mesh = SubResource("QuadMesh_inuuk")

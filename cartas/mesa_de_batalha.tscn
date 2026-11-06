@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://ciqx8thngsfjl"]
 
+[ext_resource type="Script" uid="uid://bicj73xm2jbre" path="res://cartas/mesa_de_batalha.gd" id="1_0eofr"]
+[ext_resource type="Resource" uid="uid://r4v7ocn3gwse" path="res://cartas/batalhas/dados/batalha_teste.res" id="2_50jq7"]
+
 [sub_resource type="QuadMesh" id="QuadMesh_k0gok"]
 size = Vector2(16, 9)
 
@@ -7,9 +10,11 @@ size = Vector2(16, 9)
 albedo_color = Color(0.25674525, 0.46368164, 0.11248753, 1)
 
 [node name="MesaDeBatalha" type="Node3D" unique_id=1689439095]
+script = ExtResource("1_0eofr")
+batalha = ExtResource("2_50jq7")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1379238916]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 current = true
 fov = 40.0
 
@@ -19,32 +24,34 @@ mesh = SubResource("QuadMesh_k0gok")
 surface_material_override/0 = SubResource("StandardMaterial3D_k0gok")
 
 [node name="SlotsInimigos" type="Node3D" parent="." unique_id=1297963031]
+unique_name_in_owner = true
 
 [node name="Slot1" type="Marker3D" parent="SlotsInimigos" unique_id=212333904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
 
 [node name="Slot2" type="Marker3D" parent="SlotsInimigos" unique_id=1664201070]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 2.15, 0)
 
 [node name="Slot3" type="Marker3D" parent="SlotsInimigos" unique_id=194253926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 2.15, 0)
 
 [node name="Slot4" type="Marker3D" parent="SlotsInimigos" unique_id=619883350]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 2.15, 0)
 
 [node name="Slot5" type="Marker3D" parent="SlotsInimigos" unique_id=656481213]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 2.15, 0)
 
 [node name="SlotsEquipe" type="Node3D" parent="." unique_id=1919218842]
+unique_name_in_owner = true
 
 [node name="Slot1" type="Marker3D" parent="SlotsEquipe" unique_id=1415499047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 0)
-
-[node name="Slot2" type="Marker3D" parent="SlotsEquipe" unique_id=331733089]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
+[node name="Slot2" type="Marker3D" parent="SlotsEquipe" unique_id=331733089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.1, 0)
+
 [node name="Slot3" type="Marker3D" parent="SlotsEquipe" unique_id=1550937415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0.1, 0)
 
 [node name="SlotBaralho" type="Marker3D" parent="." unique_id=1198441777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.2, 0)
@@ -53,3 +60,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.2, 0)
 
 [node name="Cartas" type="Node3D" parent="." unique_id=178236801]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=829309802]
+transform = Transform3D(1, 0, 0, 0, 0.9515712, 0.30742842, 0, -0.30742842, 0.9515712, 0, 5.4761386, 11.137571)
