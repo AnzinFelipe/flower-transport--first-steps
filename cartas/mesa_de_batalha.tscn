@@ -54,12 +54,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0.1, 0)
 
 [node name="SlotBaralho" type="Marker3D" parent="." unique_id=1198441777]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.2, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.8, 0)
 
 [node name="SlotAuxiliar" type="Marker3D" parent="." unique_id=725965179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.2, 0)
 
-[node name="Cartas" type="Node3D" parent="." unique_id=178236801]
+[node name="Mao" type="Node3D" parent="." unique_id=178236801]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=829309802]
 transform = Transform3D(1, 0, 0, 0, 0.9515712, 0.30742842, 0, -0.30742842, 0.9515712, 0, 5.4761386, 11.137571)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=783009958]
+
+[node name="BotaoDescarte" type="Button" parent="CanvasLayer" unique_id=1255014813]
+unique_name_in_owner = true
+offset_left = 118.0
+offset_top = 887.0
+offset_right = 267.0
+offset_bottom = 953.0
+theme_override_font_sizes/font_size = 30
+text = "Descartar"

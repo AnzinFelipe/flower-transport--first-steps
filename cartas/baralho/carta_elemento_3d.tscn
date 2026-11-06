@@ -5,12 +5,12 @@
 [sub_resource type="QuadMesh" id="QuadMesh_tnxfs"]
 size = Vector2(0.714, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_77dlt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xptgo"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adggu"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_77dlt")
+albedo_texture = SubResource("ViewportTexture_xptgo")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3g672"]
 size = Vector2(0.714, 1)
@@ -61,3 +61,7 @@ shape = SubResource("BoxShape3D_f81cm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=768913749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.742)
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
