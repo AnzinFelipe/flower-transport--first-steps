@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://wd5fqvmtrj0c"]
+
+[ext_resource type="PackedScene" uid="uid://df5pbtqxqm00s" path="res://personagens/player.tscn" id="1_6yqtd"]
+[ext_resource type="PackedScene" uid="uid://cgbcc7mi38bb0" path="res://mundo/placa_batalha.tscn" id="2_x5gbg"]
+[ext_resource type="Resource" uid="uid://r4v7ocn3gwse" path="res://cartas/batalhas/dados/batalha_teste.res" id="3_ptdkv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fcnqv"]
+sky_top_color = Color(0.09469407, 0.45950222, 0.7683487, 1)
+sky_horizon_color = Color(0.32805395, 0.72963214, 0.7159728, 1)
+ground_bottom_color = Color(0.24203944, 0.15062097, 0.08259309, 1)
+ground_horizon_color = Color(0.4619736, 0.7252967, 0.5442886, 1)
+
+[sub_resource type="Sky" id="Sky_57qmd"]
+sky_material = SubResource("ProceduralSkyMaterial_fcnqv")
+
+[sub_resource type="Environment" id="Environment_yf5fn"]
+background_mode = 2
+sky = SubResource("Sky_57qmd")
+
+[node name="Teste" type="Node3D" unique_id=39208730]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=739827661]
+use_collision = true
+size = Vector3(50, 0, 50)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=543183620]
+transform = Transform3D(1, 0, 0, 0, 0.2797019, 0.96008694, 0, -0.96008694, 0.2797019, 0, 37.49457, 24.82989)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=402531841]
+environment = SubResource("Environment_yf5fn")
+
+[node name="Player" parent="." unique_id=643163768 instance=ExtResource("1_6yqtd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="StaticBody3D" parent="." unique_id=700666242 instance=ExtResource("2_x5gbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.916986)
+batalha = ExtResource("3_ptdkv")

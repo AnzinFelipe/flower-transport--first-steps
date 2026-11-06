@@ -24,6 +24,11 @@ var turno: int = 0
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	if Gerenciador.batalha_atual != null:
+		batalha = Gerenciador.batalha_atual
+
 	if batalha != null:
 		if batalha.equipe != null:
 			for i in range(batalha.equipe.size()):

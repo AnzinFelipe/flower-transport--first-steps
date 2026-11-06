@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://df5pbtqxqm00s"]
+
+[ext_resource type="Script" uid="uid://cgoroqo17tpah" path="res://personagens/player.gd" id="1_a7ywf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+
+[node name="Player" type="CharacterBody3D" unique_id=643163768 groups=["player"]]
+script = ExtResource("1_a7ywf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=448033022]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1214923748]
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Pivo" type="Node3D" parent="." unique_id=1622011869]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 1, 0)
+
+[node name="Camera" type="Camera3D" parent="Pivo" unique_id=1863036889]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
